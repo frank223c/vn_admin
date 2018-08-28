@@ -1,0 +1,6 @@
+Django==2.1
+# MySQL DB API Drivers : MySQLdb, mysqlclient or MySQL Connector/Python
+# Mac + python 3 doesnt currently (2018) support any of them
+# so usee `brew install mysql-connector-c`
+# for the time being here's the default that probably fails on mac, but will work on linux / ec2 instances.
+mysqlclient==1.3.13

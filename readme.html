@@ -1,0 +1,47 @@
+README FILE <br/>
+<i>Author : Raphael Attali - for any question <a href="mailto:attali.raphael@gmail.com" style="color:black">feel free to contact me.</a></i> 
+<h1 style="color:#0055ff;"> Admin Page </h1>
+
+<h2 style="color:#0000bb"> How to Install </h2>
+
+<h3> Prerequisites :</h3>
+- Installing Python3<br/>
+- Installing Django : run on cmd &nbsp &nbsp  <i>pip install django</i><br/>
+- It may be some libraries not installed on your working computer. For any missing library, run on cmd &nbsp &nbsp  <i>pip install lib_name</i><br/>
+
+<h3> Running the admin page in <b style="color:#bb00bb">localhost</b> :</h3>
+- Open the current folder in cmd.<br/>
+- Run the following : 
+	<ul>
+	Only on first use and whenever the models are modified :
+		<li><i>python manage.py makemigrations</i> </li>
+		<li><i>python manage.py migrate</i></li> <br/>
+	Always :
+		<li><i>python manage.py runserver</i></li>
+	</ul>
+- Open in browser &nbsp &nbsp <i>127.0.0.1:8000/admin</i>
+
+<h3> Running the admin page with <b style="color:#bb00bb">custom host</b> :</h3>
+- Add in <a href="versatile_admin\settings.py">versatile_admin\settings.py</a> the host name in brackets in &nbsp &nbsp <i>ALLOWED_HOSTS = [ ... ]</i><br/>
+- Follow the host instructions. Usually, hosts have a "Getting Started with Django", 
+such as <a href=https://devcenter.heroku.com/articles/getting-started-with-python>Heroku does<a>
+
+
+<h2 style="color:#0000bb"> How to Manage the page</h2>
+<h3> Models</h3>
+A model represents a table in the database. Then every table in the database is stored in <a href="adminapp\models.py">models.py</a> as a class overriding models.<br/>
+You can add functions linked to each class, however it won't change the database if you don't call <i>.save()</i> fonction. <br/>
+Make sure you also have <i>managed = True</i> in the classes you want to be modified from admin app.
+
+<h3> Managing the models from admin page</h3>
+You can add wanted models by adding <i>admin.site.register(ModelName,CustomAdmin)</i>. CustomAdmin is not needed, 
+but you can override the default behaviour of Django with this parameter. To know further about this, check <a href="adminapp\admin.py">admin.py</a>.
+
+<br/>Default behaviour : add a new entry, change existing entries or delete them.<br/>
+As said before, make sure you have <i>managed = True</i> in the classes you want to be modified from admin app.
+
+<h3> Modifying the linked database </h3>
+If you want to link another database to the app, enter the credentials of the new databse in <a href="versatile_admin\settings.py">versatile_admin\settings.py</a> and follow the instructions <a href="https://docs.djangoproject.com/en/2.1/howto/legacy-databases/">here</a>.<br/>
+The models file may be overwritten though.
+
+<br/><br/><br/><br/><br/>
